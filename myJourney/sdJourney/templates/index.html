@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Learning Journey</title>
+     {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>My Learning Journey</h1>
+        <img src="{% static 'images/l.png' %}" alt="Admin Screenshot" width="70%">
+        <nav>
+            <a href="/">Home</a> |
+            <a href="/about/">About Me</a>
+        </nav>
+    </header>
+
+    <section>
+        {% for item in journey %}
+        <div class="card">
+            <h2>{{ item.title }}</h2>
+            <p>{{ item.description }}</p>
+            <small>Created on: {{ item.date }}</small>
+        </div>
+        {% empty %}
+        <p>No journeys yet. Add one in the admin panel!</p>
+        {% endfor %}
+    </section>
+</body>
+</html>

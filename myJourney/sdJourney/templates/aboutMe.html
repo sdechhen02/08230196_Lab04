@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About Me</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>About Me</h1>
+        <img src="{% static 'images/2.png' %}" alt="Admin Screenshot" width="70%">
+        <nav>
+            <a href="/">Home</a> |
+            <a href="/about/">About Me</a>
+        </nav>
+    </header>
+
+    <section>
+        {% if about %}
+        <div class="card">
+            <h2>{{ about.name }}</h2>
+            <p>{{ about.bio }}</p>
+            <p><strong>Skills:</strong> {{ about.skills }}</p>
+        </div>
+        {% else %}
+        <p>No profile yet. Add one in the admin panel!</p>
+        {% endif %}
+    </section>
+</body>
+</html>
